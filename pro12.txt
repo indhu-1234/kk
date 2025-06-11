@@ -1,0 +1,110 @@
+class animal:
+    def sound(self):
+        pass
+class cat(animal):
+    def sound(self):
+        print("meow")
+class dog(animal):
+    def sound(self):
+        print("woof")
+def make_sound(animal):
+    animal.sound()
+cat=cat()
+dog=dog()
+make_sound(cat)
+make_sound(dog)
+o/p:
+meow
+woof
+===============================================================================================================
+class Shape:
+    def __init__(self, color):
+        self.color = color
+    def area(self):
+        pass
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius ** 2
+class Rectangle(Shape):
+    def __init__(self, color, width, height):
+        super().__init__(color)
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width * self.height
+circle = Circle("Red", 5)
+rectangle = Rectangle("Blue", 4, 6)
+print("circle area:", circle.area())
+print("rectangle area:", rectangle.area())
+O/P:
+circle area: 78.5
+rectangle area: 24
+
+
+===============================================================================================================
+class MyClass:
+    def __init__(self):
+        self.public_attribute = "I'm a public attribute"
+        self._protected_attribute = "I'm a protected attribute"
+        self.__private_attribute = "I'm a private attribute"
+    def public_method(self):
+        print("I'm a public method")
+    def _protected_method(self):
+        print("I'm a protected method")
+    def __private_method(self):
+        print("I'm a private method")
+obj = MyClass()
+print(obj.public_attribute)
+obj.public_method()
+print(obj._protected_attribute)
+obj._protected_method()
+print(obj._MyClass__private_attribute)
+obj._MyClass__private_method()
+o/p:
+I'm a public attribute
+I'm a public method
+I'm a protected attribute
+I'm a protected method
+I'm a private attribute
+I'm a private method
+===============================================================================================================
+class BankAccount:
+    def __init__(self, account_number, balance):
+        self._account_number = account_number
+        self._balance = balance
+    def get_account_number(self):
+        return self._account_number
+    def get_balance(self):
+        return self._balance
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+            print("Deposit successful.")
+        else:
+            print("Invalid amount for deposit.")
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self._balance:
+            self._balance -= amount
+            print("Withdrawal successful.")
+        else:
+            print("Insufficient funds or invalid amount for withdrawal.")
+account = BankAccount("1234567890", 1000)
+print("Account Number:", account.get_account_number())
+print("Balance:", account.get_balance())
+account.deposit(500)
+account.withdraw(200)
+account._account_number = "9876543210"
+account._balance = 5000
+print("Account Number:", account.get_account_number())
+print("Balance:", account.get_balance())
+o/p:
+Account Number: 1234567890
+Balance: 1000
+Deposit successful.
+Withdrawal successful.
+Account Number: 9876543210
+Balance: 5000
+===============================================================================================================
